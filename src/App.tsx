@@ -4,28 +4,25 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom'
-import './index.css'
-import { ChakraProvider } from '@chakra-ui/react'
-import { Component as AppLayout } from '@app/layouts'
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react'
 import theme from '@app/themes/theme'
+import { MainLayout } from '@app/layouts'
+import Home from '@app/pages/Home'
+import NotFound from '@app/pages/NotFound'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/">
-      <Route path="*" lazy={() => import('@app/pages/NotFound')} />
-
-      <Route path="user/error" lazy={() => import('@app/pages/UserErro')} />
-
-      <Route element={<AppLayout />}>
-        <Route index lazy={() => import('@app/pages/Home')} />
-      </Route>
-    </Route>
-  )
+    <Route element={<MainLayout />}>
+      <Route index element={<Home />} />
+      <Route path="*" element={<NotFound />} />
+    </Route>,
+  ),
 )
 
 function App() {
   return (
-    <ChakraProvider value={theme}>
+    <ChakraProvider theme={theme}>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <RouterProvider router={router} />
     </ChakraProvider>
   )

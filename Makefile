@@ -1,18 +1,13 @@
-COMPOSER = composer
 NPM = npm
-SYMFONY = symfony
-DOCKER_COMPOSE = docker compose
 
-setup:
-	test -f .env || cp .env.dist .env
-	$(NPM) install
-	$(NPM) start
+start:
+$(NPM) run start
 
-up:
-	$(NPM) start
+lint:
+$(NPM) run lint
+
+fix:
+$(NPM) run lint:fix
 
 down:
-	pkill -f "npm start"
-
-lint-tsx:
-	npx eslint . --ext .tsx,.ts,.jsx,.js --fix
+$(NPM) run down

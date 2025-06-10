@@ -1,6 +1,7 @@
 import { Container } from '@chakra-ui/react'
+import { ReactNode } from 'react'
 
-export default function AppContainer({ children }: { children?: React.ReactNode }) {
+export default function AppContainer({ children }: { children?: ReactNode }) {
   return (
     <Container
       maxW="full"

@@ -1,55 +1,48 @@
-# React + TypeScript + Vite
+# Skeleton React Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project provides a minimal React + TypeScript template using [Chakra UI](https://chakra-ui.com/) v3 and [Lucide](https://lucide.dev/) icons.
+It includes basic routing, a custom theme with a `brand` color, and examples of Chakra's Skeleton components.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm install
+make start    # start dev server
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `make start` – run Vite in development mode
+- `make lint` – check code with ESLint
+- `make fix` – automatically fix lint errors
+- `make down` – stop the dev server
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+The same commands are available via `npm` scripts.
+
+## Project Structure
+
 ```
-# Skeleton-React
+src/
+  layouts/        # layout components
+  pages/          # application pages
+  themes/         # Chakra theme configuration
+  main.tsx        # app entry
+```
+
+## Example Usage
+
+The home page demonstrates a basic Skeleton loader and theme toggle button:
+
+```tsx
+import { SkeletonCircle, SkeletonText } from '@chakra-ui/react'
+```
+
+Routes are defined using `react-router-dom` and a fallback 404 page is included.
+
+## Formatting and Linting
+
+ESLint and Prettier are configured. To automatically format on save, enable the appropriate extension in your editor.
+
+## License
+
+This project is released under the MIT License. See [LICENSE](LICENSE).
