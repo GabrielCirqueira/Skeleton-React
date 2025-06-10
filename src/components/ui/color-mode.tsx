@@ -11,7 +11,13 @@ export interface ColorModeProviderProps extends ThemeProviderProps {}
 
 export function ColorModeProvider(props: ColorModeProviderProps) {
   return (
-    <ThemeProvider attribute="class" disableTransitionOnChange {...props} />
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="light"
+      enableSystem={false}
+      disableTransitionOnChange
+      {...props}
+    />
   )
 }
 
@@ -19,7 +25,8 @@ export type ColorMode = 'light' | 'dark'
 
 export interface UseColorModeReturn {
   colorMode: ColorMode
-  setColorMode: (colorMode: ColorMode) => void
+  // eslint-disable-next-line no-unused-vars
+  setColorMode: (mode: ColorMode) => void
   toggleColorMode: () => void
 }
 

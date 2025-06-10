@@ -1,48 +1,42 @@
 # Skeleton React Template
 
-This project provides a minimal React + TypeScript template using [Chakra UI](https://chakra-ui.com/) v3 and [Lucide](https://lucide.dev/) icons.
-It includes basic routing, a custom theme with a `brand` color, and examples of Chakra's Skeleton components.
+Este projeto fornece uma estrutura mínima utilizando **React** e **TypeScript** com o **Chakra UI v3**. A proposta é servir de ponto de partida para novos projetos, já configurado com tema personalizado, roteamento e modo de cor.
 
-## Getting Started
+## Começando
 
 ```bash
 npm install
-make start    # start dev server
+npm run start
 ```
 
-### Scripts
+### Scripts Disponíveis
 
-- `make start` – run Vite in development mode
-- `make lint` – check code with ESLint
-- `make fix` – automatically fix lint errors
-- `make down` – stop the dev server
+- `npm run start` &ndash; inicia o servidor de desenvolvimento (Vite)
+- `npm run lint` &ndash; executa o ESLint
+- `npm run lint:fix` &ndash; corrige problemas de lint automaticamente
+- `npm run down` &ndash; encerra o servidor de desenvolvimento
 
-The same commands are available via `npm` scripts.
-
-## Project Structure
+## Estrutura do Projeto
 
 ```
 src/
-  layouts/        # layout components
-  pages/          # application pages
-  themes/         # Chakra theme configuration
-  main.tsx        # app entry
+  layouts/      # layouts de página
+  pages/        # páginas da aplicação
+  themes/       # configuração do tema Chakra
+  main.tsx      # ponto de entrada
 ```
 
-## Example Usage
+## Recursos
 
-The home page demonstrates a basic Skeleton loader and theme toggle button:
+- Tema customizado com paleta `brand` em tons de ciano para verde
+- Componente de alternância de tema claro/escuro
+- Página inicial demonstrativa com gráfico e links úteis
+- Página 404 personalizada
 
-```tsx
-import { SkeletonCircle, SkeletonText } from '@chakra-ui/react'
-```
+## Chakra UI
 
-Routes are defined using `react-router-dom` and a fallback 404 page is included.
+O projeto já está preparado para a **versão 3** do Chakra UI. Consulte a [documentação de temas](https://chakra-ui.com/docs/theming/overview) e o [guia de migração](https://chakra-ui.com/docs/get-started/migration) para mais detalhes.
 
-## Formatting and Linting
+## Licença
 
-ESLint and Prettier are configured. To automatically format on save, enable the appropriate extension in your editor.
-
-## License
-
-This project is released under the MIT License. See [LICENSE](LICENSE).
+Distribuído sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE).
