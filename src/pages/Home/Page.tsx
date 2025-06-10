@@ -1,4 +1,7 @@
-import { useColorMode, useColorModeValue } from '@app/components/ui/color-mode'
+import {
+  useColorModeValue,
+  ColorModeButton,
+} from '@app/components/ui/color-mode'
 import {
   Box,
   Button,
@@ -6,15 +9,12 @@ import {
   Text,
   VStack,
   HStack,
-  IconButton,
   SimpleGrid,
   Card,
   List,
   useToken,
 } from '@chakra-ui/react'
 import {
-  Sun,
-  Moon,
   Blocks,
   PenLine,
   LayoutDashboard,
@@ -27,23 +27,17 @@ import {
 import { FaReact as ReactIcon } from 'react-icons/fa'
 
 export function Component() {
-  const { colorMode, toggleColorMode } = useColorMode()
   const [brand] = useToken('colors', ['brand.500'])
   const cardBg = useColorModeValue('white', 'gray.900')
   const textColor = useColorModeValue('gray.600', 'gray.300')
 
   return (
     <VStack gap={24} align="stretch" px={{ base: 4, md: 14 }} py={20}>
-      <IconButton
-        aria-label="Alternar tema"
-        onClick={toggleColorMode}
-        variant="ghost"
+      <ColorModeButton
         size="lg"
         alignSelf="flex-end"
         _hover={{ transform: 'scale(1.1)' }}
-      >
-        {colorMode === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-      </IconButton>
+      />
 
       <Box
         rounded="2xl"

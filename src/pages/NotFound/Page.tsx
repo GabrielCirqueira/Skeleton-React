@@ -8,9 +8,9 @@ export function Component() {
         404
       </Heading>
       <Text mb={6}>Página não encontrada.</Text>
-      <Button as={RouterLink} colorScheme="brand" to="/">
-        Voltar para a Home
-      </Button>
+      <RouterLink to="/">
+        <Button colorScheme="brand">Voltar para a Home</Button>
+      </RouterLink>
     </Box>
   )
 }
