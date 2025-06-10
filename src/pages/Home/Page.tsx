@@ -1,102 +1,276 @@
-import { useColorMode } from '@app/components/ui/color-mode'
+import { useColorMode, useColorModeValue } from '@app/components/ui/color-mode'
 import {
   Box,
+  Button,
   Heading,
-  VStack,
-  SkeletonCircle,
-  SkeletonText,
   Text,
+  VStack,
+  HStack,
   IconButton,
+  SimpleGrid,
+  Card,
   List,
-  ListItem,
-  Link,
   useToken,
 } from '@chakra-ui/react'
-import { Sun, Moon } from 'lucide-react'
 import {
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  Tooltip,
-  CartesianGrid,
-} from 'recharts'
-import { useEffect, useState } from 'react'
+  Sun,
+  Moon,
+  Blocks,
+  PenLine,
+  LayoutDashboard,
+  Code2,
+  Palette,
+  PackagePlus,
+  Zap,
+  CheckCircle,
+} from 'lucide-react'
+import { FaReact as ReactIcon } from 'react-icons/fa'
 
 export function Component() {
   const { colorMode, toggleColorMode } = useColorMode()
-  const [loading, setLoading] = useState(true)
   const [brand] = useToken('colors', ['brand.500'])
-
-  const data = [
-    { name: 'Jan', users: 30 },
-    { name: 'Fev', users: 40 },
-    { name: 'Mar', users: 35 },
-    { name: 'Abr', users: 50 },
-  ]
-
-  useEffect(() => {
-    const id = setTimeout(() => setLoading(false), 1500)
-    return () => clearTimeout(id)
-  }, [])
+  const cardBg = useColorModeValue('white', 'gray.900')
+  const textColor = useColorModeValue('gray.600', 'gray.300')
 
   return (
-    <VStack gap={6} align="stretch">
+    <VStack gap={24} align="stretch" px={{ base: 4, md: 14 }} py={20}>
       <IconButton
-        aria-label="Toggle theme"
-        alignSelf="flex-end"
+        aria-label="Alternar tema"
         onClick={toggleColorMode}
+        variant="ghost"
+        size="lg"
+        alignSelf="flex-end"
+        _hover={{ transform: 'scale(1.1)' }}
       >
-        {colorMode === 'light' ? <Moon /> : <Sun />}
+        {colorMode === 'light' ? <Moon size={20} /> : <Sun size={20} />}
       </IconButton>
-      <Heading color="brand.500">Skeleton React</Heading>
-      <Text fontSize="sm" color="fg">
-        Este projeto demonstra o uso do Chakra UI v3 com TypeScript e React.
-        Utilize o botão acima para alternar entre os temas claro e escuro.
-      </Text>
-      <Box borderWidth="1px" borderRadius="md" p={4}>
-        {loading ? (
-          <>
-            <SkeletonCircle size="10" />
-            <SkeletonText mt="4" noOfLines={4} gap="3" />
-          </>
-        ) : (
-          <>
-            <Text mb={4}>Exemplo de gráfico com dados fictícios:</Text>
-            <ResponsiveContainer width="100%" height={200}>
-              <LineChart
-                data={data}
-                margin={{ left: 0, right: 0, top: 0, bottom: 0 }}
-              >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Line type="monotone" dataKey="users" stroke={brand} />
-              </LineChart>
-            </ResponsiveContainer>
-          </>
-        )}
+
+      <Box
+        rounded="2xl"
+        py={{ base: 14, md: 20 }}
+        px={{ base: 6, md: 16 }}
+        textAlign="center"
+        bg={cardBg}
+        animationName="fade-in, slide-from-bottom"
+        animationDuration="600ms"
+      >
+        <Heading size="3xl" color="brand.500">
+          Skeleton Vite + React + Chakra UI v3
+        </Heading>
+        <Text mt={3} fontSize="lg" color={textColor}>
+          Estrutura mínima com roteamento, tema custom e lint prontos para uso
+        </Text>
+        <Text mt={6} maxW="3xl" mx="auto" color={textColor}>
+          Comece projetos com tipagem forte em TypeScript, page-routing
+          assíncrono e tokens semânticos que alternam suavemente entre modos
+          claro e escuro.
+        </Text>
+        <HStack mt={10} gap={6} justify="center" flexWrap="wrap">
+          <Button
+            colorScheme="brand"
+            size="lg"
+            shadow="sm"
+            _hover={{ transform: 'translateY(-2px)', shadow: 'md' }}
+          >
+            <Blocks size={18} />
+            Explorar Código
+          </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            _hover={{ bg: 'bg', transform: 'translateY(-2px)' }}
+          >
+            <PenLine size={18} />
+            Documentação
+          </Button>
+        </HStack>
       </Box>
-      <Box>
-        <Text>Links úteis:</Text>
-        <List pl={4} styleType="disc" spacing={1} fontSize="sm" color="fg">
-          <ListItem>
-            <Link href="https://chakra-ui.com/docs/theming/overview" isExternal>
-              Documentação de temas
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link
-              href="https://chakra-ui.com/docs/get-started/migration"
-              isExternal
+
+      <VStack gap={12}>
+        <Heading textAlign="center" color="brand.500">
+          Visão Geral do Skeleton
+        </Heading>
+        <SimpleGrid columns={{ base: 1, md: 3 }} gap={10}>
+          {[
+            {
+              icon: PackagePlus,
+              title: 'Dependências',
+              bullets: [
+                'React 18 + Vite 5',
+                'Chakra UI v3',
+                'Recharts p/ gráficos',
+                'ESLint + Prettier',
+              ],
+            },
+            {
+              icon: Palette,
+              title: 'Tema & Cor',
+              bullets: [
+                'Paleta brand (ciano→verde)',
+                'Tokens semânticos bg / fg',
+                'Transição suave dark/light',
+              ],
+            },
+
+            {
+              icon: Zap,
+              title: 'Scripts úteis',
+              bullets: [
+                '`npm run start` – dev server 5175',
+                '`npm run build` – produção',
+                '`npm run preview` – preview estático',
+                '`npm run lint(:fix)` – qualidade',
+              ],
+            },
+          ].map(({ icon: Icon, title, bullets }) => (
+            <Card.Root
+              key={title}
+              bg={cardBg}
+              p={8}
+              rounded="xl"
+              border="none"
+              transition="all .25s"
+              _hover={{ transform: 'translateY(-6px)' }}
             >
-              Guia de migração para a versão 3
-            </Link>
-          </ListItem>
-        </List>
-      </Box>
+              <HStack gap={4}>
+                <Box p={4} bg="brand.500" rounded="md" color="white">
+                  <Icon size={20} />
+                </Box>
+                <Heading size="md">{title}</Heading>
+              </HStack>
+              <List.Root gap="2" mt={4}>
+                {bullets.map((b) => (
+                  <List.Item key={b}>
+                    <HStack gap={2}>
+                      <CheckCircle size={14} color={brand} />
+                      <Text color={textColor}>{b}</Text>
+                    </HStack>
+                  </List.Item>
+                ))}
+              </List.Root>
+            </Card.Root>
+          ))}
+        </SimpleGrid>
+      </VStack>
+
+      <VStack gap={12}>
+        <Heading textAlign="center" color="brand.500">
+          Bibliotecas Principais
+        </Heading>
+        <SimpleGrid columns={{ base: 1, md: 4 }} gap={8}>
+          {[
+            { icon: ReactIcon, label: 'React 18', desc: 'UI declarativa' },
+            { icon: Blocks, label: 'Chakra UI v3', desc: 'Design System' },
+            { icon: Code2, label: 'TypeScript', desc: 'Tipagem estática' },
+            { icon: LayoutDashboard, label: 'Vite 5', desc: 'Bundler rápido' },
+          ].map(({ icon: Icon, label, desc }) => (
+            <Card.Root
+              key={label}
+              bg={cardBg}
+              p={8}
+              rounded="xl"
+              border="none"
+              textAlign="center"
+              transition="all .25s"
+              _hover={{ transform: 'translateY(-6px)' }}
+            >
+              <HStack>
+                <Box
+                  mx="auto"
+                  w={12}
+                  h={12}
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  bg="brand.500"
+                  rounded="md"
+                  color="white"
+                >
+                  <Icon size={22} />
+                </Box>
+                <Box>
+                  {' '}
+                  <Heading size="sm" mt={5}>
+                    {label}
+                  </Heading>
+                  <Text mt={2} color={textColor}>
+                    {desc}
+                  </Text>
+                </Box>
+              </HStack>
+            </Card.Root>
+          ))}
+        </SimpleGrid>
+      </VStack>
+
+      <VStack gap={12}>
+        <Heading textAlign="center" color="brand.500">
+          Theming & Rotas
+        </Heading>
+        <SimpleGrid columns={{ base: 1, md: 3 }} gap={10}>
+          {[
+            {
+              title: 'Theming & Cor',
+              bullets: [
+                'Tokens bg / fg nativos',
+                'Palette brand configurada',
+                'Animações built-in',
+              ],
+            },
+            {
+              title: 'Rotas',
+              bullets: [
+                'Home – demonstra tema + gráfico',
+                'NotFound – mensagem 404',
+                'lazy() p/ carregamento',
+              ],
+            },
+            {
+              title: 'Lint & Formatação',
+              bullets: [
+                'ESLint (plugins React, Hooks, TS)',
+                'Prettier integrado',
+                'Regras recomendadas ativas',
+              ],
+            },
+          ].map(({ title, bullets }) => (
+            <Card.Root
+              key={title}
+              bg={cardBg}
+              p={8}
+              rounded="xl"
+              border="none"
+              transition="all .25s"
+              _hover={{ transform: 'translateY(-6px)' }}
+            >
+              <Heading size="md">{title}</Heading>
+              <List.Root gap="2" mt={4}>
+                {bullets.map((b) => (
+                  <List.Item key={b}>
+                    <HStack gap={2}>
+                      <CheckCircle size={14} color={brand} />
+                      <Text color={textColor}>{b}</Text>
+                    </HStack>
+                  </List.Item>
+                ))}
+              </List.Root>
+            </Card.Root>
+          ))}
+        </SimpleGrid>
+      </VStack>
+
+      <VStack gap={8}>
+        <Heading textAlign="center" color="brand.500">
+          Considerações
+        </Heading>
+        <Text mx="auto" maxW="3xl" textAlign="center" color={textColor}>
+          Este esqueleto demonstra uma configuração moderna de React +
+          TypeScript com Chakra UI v3. Inclui navegação, suporte a dark mode,
+          gráficos prontos e tema personalizável — ponto de partida ideal para
+          projetos que precisam de theming consistente, roteamento e boas
+          práticas de linting.
+        </Text>
+      </VStack>
     </VStack>
   )
 }

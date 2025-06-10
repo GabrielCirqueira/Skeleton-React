@@ -1,10 +1,11 @@
+import '@fontsource/lato'
 import { createSystem, defaultConfig, defineConfig } from '@chakra-ui/react'
 
 const config = defineConfig({
   globalCss: {
     body: {
-      fontFamily: 'Inter, sans-serif',
-      bg: { base: 'gray.50', _dark: 'gray.800' },
+      fontFamily: 'Lato, sans-serif',
+      bg: { base: 'gray.100', _dark: 'gray.800' },
       color: { base: 'gray.800', _dark: 'gray.100' },
       transition: 'background-color 0.2s, color 0.2s',
     },
@@ -24,6 +25,18 @@ const config = defineConfig({
           800: { value: '#005a47' },
           900: { value: '#00443a' },
           950: { value: '#002b25' },
+        },
+        gray: {
+          50: { value: '#F7FAFC' },
+          100: { value: '#EDF2F7' },
+          200: { value: '#E2E8F0' },
+          300: { value: '#CBD5E0' },
+          400: { value: '#A0AEC0' },
+          500: { value: '#718096' },
+          600: { value: '#4A5568' },
+          700: { value: '#2D3748' },
+          800: { value: '#1A202C' },
+          900: { value: '#171923' },
         },
       },
       fontSizes: {
