@@ -1,3 +1,4 @@
+import { useColorMode } from '@app/components/ui/color-mode'
 import {
   Box,
   Heading,
@@ -6,12 +7,12 @@ import {
   SkeletonText,
   Text,
   IconButton,
-  useColorMode,
+  Button,
 } from '@chakra-ui/react'
 import { Sun, Moon } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
-export default function Home() {
+export function Component() {
   const { colorMode, toggleColorMode } = useColorMode()
   const [loading, setLoading] = useState(true)
 
@@ -21,19 +22,20 @@ export default function Home() {
   }, [])
 
   return (
-    <VStack spacing={6} align="stretch">
+    <VStack gap={6} align="stretch">
       <IconButton
         aria-label="Toggle theme"
         alignSelf="flex-end"
         onClick={toggleColorMode}
-        icon={colorMode === 'light' ? <Moon /> : <Sun />}
-      />
+      >
+        {colorMode === 'light' ? <Moon /> : <Sun />}
+      </IconButton>
       <Heading color="brand.500">Skeleton React Template</Heading>
       <Box borderWidth="1px" borderRadius="md" p={4}>
         {loading ? (
           <>
             <SkeletonCircle size="10" />
-            <SkeletonText mt="4" noOfLines={4} spacing="3" skeletonHeight="2" />
+            <SkeletonText mt="4" noOfLines={4} gap="3" />
           </>
         ) : (
           <Text>

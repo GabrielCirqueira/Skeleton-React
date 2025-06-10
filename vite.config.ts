@@ -9,4 +9,12 @@ export default defineConfig({
       '@app': resolve(__dirname, 'src'),
     },
   },
+    server: {
+    host: "0.0.0.0",
+    cors: true,
+    port: 5175,
+    hmr: {
+      host: "localhost",
+    },
+  },
 })
