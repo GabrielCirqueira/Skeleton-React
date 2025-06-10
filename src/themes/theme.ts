@@ -1,44 +1,26 @@
-import { createSystem, defaultConfig, defineConfig } from '@chakra-ui/react'
+import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
 
-const config = defineConfig({
-  globalCss: {
-    body: {
-      bg: 'fluaui.grey.50',
-      fontFamily: 'Lato, sans-serif',
+const config: ThemeConfig = {
+  initialColorMode: 'light',
+  useSystemColorMode: false,
+}
+
+const theme = extendTheme({
+  colors: {
+    brand: {
+      50: '#f8f8f8',
+      100: '#e6e6e6',
+      200: '#d4d4d4',
+      300: '#b8b8b8',
+      400: '#9c9c9c',
+      500: '#808080',
+      600: '#666666',
+      700: '#4d4d4d',
+      800: '#333333',
+      900: '#1a1a1a',
     },
   },
-  theme: {
-    tokens: {
-      colors: {
-          brand: {
-            50: { value: '#fff0f0' },
-            100: { value: '#ffe4e3' },
-            200: { value: '#ffcbcc' },
-            300: { value: '#ffa0a4' },
-            400: { value: '#ff6a73' },
-            500: { value: '#fd5260' },
-            600: { value: '#ea1430' },
-            700: { value: '#c60a27' },
-            800: { value: '#a60b28' },
-            900: { value: '#8e0d29' },
-            950: { value: '#4f0211' },
-          },
-      },
-      fontSizes: {
-        '2xs': { value: '0.625rem' },
-      },
-    },
-    semanticTokens: {
-      colors: {
-        brand: {
-          DEFAULT: { value: '{colors.brand.500}' },
-          solid: { value: '{colors.brand.500}' },
-          contrast: { value: '{colors.white}' },
-        },
-        background: { value: '{colors.fluaui.grey.50}' },
-      },
-    },
-  },
+  config,
 })
 
-export const system = createSystem(defaultConfig, config)
+export default theme
