@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Skeleton React template by Gabriel Cirqueira",
   "bin": {
-    "create-skeleton-react": "./bin/create-skeleton-react.js"
+    "create-skeleton-react": "bin/create-skeleton-react.js"
   },
   "scripts": {
-    "prepack": "cp -r src versions/v1 && cp -r src versions/v2"
+    "prepack": "echo 'Preparing package for publishing...'"
   },
   "keywords": [
     "react",

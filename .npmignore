@@ -1,0 +1,8 @@
+.*
+*.log
+node_modules/
+.git/
+.gitignore
+.npmrc
+.DS_Store
+package-lock.json
