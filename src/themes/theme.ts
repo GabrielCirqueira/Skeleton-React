@@ -1,50 +1,44 @@
-import { extendTheme } from '@chakra-ui/react'
+import { createSystem, defaultConfig, defineConfig } from '@chakra-ui/react'
 
-const theme = extendTheme({
-  fonts: {
-    heading: "'Poppins', sans-serif",
-    body: "'Inter', sans-serif",
-  },
-  colors: {
-    brand: {
-      50: '#E6FFFF',
-      100: '#B3FFFF',
-      200: '#80FFFF',
-      300: '#4DFFFF',
-      400: '#1AFFFF',
-      500: '#00E6E6',
-      600: '#00B3B3',
-      700: '#008080',
-      800: '#004D4D',
-      900: '#001A1A',
+const config = defineConfig({
+  globalCss: {
+    body: {
+      bg: 'fluaui.grey.50',
+      fontFamily: 'Lato, sans-serif',
     },
   },
-  styles: {
-    global: {
-      body: {
-        bg: 'gray.50',
-      },
-    },
-  },
-  components: {
-    Button: {
-      defaultProps: {
-        colorScheme: 'brand',
-      },
-    },
-    Input: {
-      variants: {
-        outline: {
-          field: {
-            _focus: {
-              borderColor: 'brand.400',
-              boxShadow: '0 0 0 1px var(--chakra-colors-brand-400)',
-            },
+  theme: {
+    tokens: {
+      colors: {
+          brand: {
+            50: { value: '#fff0f0' },
+            100: { value: '#ffe4e3' },
+            200: { value: '#ffcbcc' },
+            300: { value: '#ffa0a4' },
+            400: { value: '#ff6a73' },
+            500: { value: '#fd5260' },
+            600: { value: '#ea1430' },
+            700: { value: '#c60a27' },
+            800: { value: '#a60b28' },
+            900: { value: '#8e0d29' },
+            950: { value: '#4f0211' },
           },
+      },
+      fontSizes: {
+        '2xs': { value: '0.625rem' },
+      },
+    },
+    semanticTokens: {
+      colors: {
+        brand: {
+          DEFAULT: { value: '{colors.brand.500}' },
+          solid: { value: '{colors.brand.500}' },
+          contrast: { value: '{colors.white}' },
         },
+        background: { value: '{colors.fluaui.grey.50}' },
       },
     },
   },
 })
 
-export default theme
+export const system = createSystem(defaultConfig, config)
