@@ -5,9 +5,6 @@
   "bin": {
     "create-skeleton-react": "bin/create-skeleton-react.js"
   },
-  "scripts": {
-    "prepack": "echo 'Preparing package for publishing...'"
-  },
   "keywords": [
     "react",
     "template",
@@ -19,6 +16,12 @@
   "type": "commonjs",
   "engines": {
     "node": ">=14.13.1"
+  },
+    "scripts": {
+      "prepack": "echo 'Preparing package for publishing...'",
+      "release:patch": "git add . && git commit -m 'Preparing patch release' && npm version patch && npm publish --access public && git push origin main --tags",
+      "release:minor": "git add . && git commit -m 'Preparing minor release' && npm version minor && npm publish --access public && git push origin main --tags",
+      "release:major": "git add . && git commit -m 'Preparing major release' && npm version major && npm publish --access public && git push origin main --tags"
   },
   "dependencies": {
     "chalk": "^4.1.2",

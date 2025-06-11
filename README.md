@@ -3,12 +3,14 @@
 ![npm version](https://img.shields.io/npm/v/@oldgabriel/skeleton-react)
 ![license](https://img.shields.io/npm/l/@oldgabriel/skeleton-react)
 
-Um template CLI completo para projetos React com Chakra UI, pré-configurado com as melhores práticas de desenvolvimento.
+
+Um template CLI completo para projetos React (e Symfony + React) com Chakra UI, pré-configurado com as melhores práticas de desenvolvimento.
 
 ## ✨ Features
 
 - Interface CLI interativa e colorida
-- Multiplas versões do Chakra UI (2.10 e 3.20)
+- Múltiplas versões do Chakra UI (2.10 e 3.20)
+- Opção para projetos React puro ou Symfony + React
 - Configurações pré-definidas:
   - ESLint + Prettier
   - TypeScript
@@ -33,7 +35,10 @@ create-skeleton-react
 
 1. Execute o comando
 2. Digite o nome do seu projeto
-3. Escolha a versão do Chakra UI
+3. Escolha a versão do template:
+   - Symfony + React TSX
+   - React TSX (Chakra v2)
+   - React TSX (Chakra v3)
 4. Pronto! Seu projeto será criado com:
    - Todas dependências instaladas (opcional)
    - Repositório Git inicializado
@@ -41,24 +46,11 @@ create-skeleton-react
 
 ## 🌈 Versões disponíveis
 
-| Versão | Chakra UI | Principais recursos |
-|--------|-----------|---------------------|
-| v1     | 2.10      | Configuração clássica |
-| v2     | 3.20      | Novos componentes e temas |
-
-## 🔄 Como atualizar o pacote
-
-1. Faça as alterações no código
-2. Atualize a versão no package.json:
-```bash
-npm version patch  # para correções
-npm version minor  # para novas features
-npm version major  # para mudanças que quebram compatibilidade
-```
-3. Publique a nova versão:
-```bash
-npm publish --access public
-```
+| Template | Framework | Chakra UI | Principais recursos |
+|----------|-----------|-----------|---------------------|
+| Skeleton-Symfony-React | Symfony + React | 2.10 | Integração fullstack |
+| Skeleton-React-chakraV2 | React | 2.10 | Configuração clássica |
+| Skeleton-React-chakraV3 | React | 3.20 | Novos componentes e temas |
 
 ## 🤝 Contribuição
 

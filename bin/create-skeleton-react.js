@@ -58,12 +58,16 @@ async function main() {
       message: chalk.cyan('🌈 Qual versão do template você deseja usar?'),
       choices: [
         {
-          name: chalk`{bold Versão 1} {gray (Chakra UI v2.10)}`,
-          value: 'v1'
+          name: chalk`{bold Skeleton Symfony + React TSX} {gray (Chakra UI v2.10)}`,
+          value: 'Skeleton-Symfony-React'
         },
         {
-          name: chalk`{bold Versão 2} {gray (Chakra UI v3.20)}`,
-          value: 'v2'
+          name: chalk`{bold Skeleton React TSX} {gray (Chakra UI v2.10)}`,
+          value: 'Skeleton-React-chakraV2'
+        },
+        {
+          name: chalk`{bold Skeleton React TSX} {gray (Chakra UI v3.20)}`,
+          value: 'Skeleton-React-chakraV3'
         }
       ]
     });
